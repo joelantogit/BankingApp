@@ -32,7 +32,8 @@ public class Customer {
 
     }
 
-    public Customer(String userName, String password) {
+    public Customer(String userName, String password) throws SQLException {
+        this();
         this.userName = userName;
         this.password = password;
     }
@@ -103,14 +104,16 @@ public class Customer {
         }
     }
 
-    public  boolean login() throws SQLException {
-        String s1 = "select * from customer where user_name=?";
+    public boolean login() throws SQLException {
+        String s1 = "select * from customer where userName=?";
 
         psmt = con.prepareStatement(s1);
         psmt.setString(1,userName);
         rst = psmt.executeQuery();
+        System.out.println("customer: login: searching username in table");
         if(rst.next()){
             String passwordDb = rst.getString(3);
+            System.out.println("customer: login: checking password");
             if(comparePasswords(password, passwordDb)){
 
                 name = rst.getString(1);

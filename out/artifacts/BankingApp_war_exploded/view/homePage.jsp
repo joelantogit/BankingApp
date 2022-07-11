@@ -8,9 +8,6 @@
     <thead>
     <th>Welcome <%=session.getAttribute("userName")%></th>
     </thead>
-    <tbody>
-
-    </tbody>
 </table>
 </body>
 </html>
