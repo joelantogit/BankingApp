@@ -19,6 +19,11 @@
             <a href="../view-balance">View Balance</a>
         </td>
     </tr>
+    <tr>
+        <td>
+            <a href="transferMoney.jsp">Transfer Money</a>
+        </td>
+    </tr>
     </tbody>
 </table>
 </body>
