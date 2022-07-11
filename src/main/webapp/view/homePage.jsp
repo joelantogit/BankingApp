@@ -9,7 +9,16 @@
     <th>Welcome <%=session.getAttribute("userName")%></th>
     </thead>
     <tbody>
+    <tr>
+        <td>
+            <a href="changePassword.jsp">Change Password</a>
+        </td>
+    </tr>
+    <tr>
+        <td>
 
+        </td>
+    </tr>
     </tbody>
 </table>
 </body>

@@ -115,11 +115,15 @@ public class Customer {
             String passwordDb = rst.getString(3);
             System.out.println("customer: login: checking password");
             if(comparePasswords(password, passwordDb)){
+                System.out.println("customer: login: password verified");
 
                 name = rst.getString(1);
                 userName = rst.getString(2);
                 balance = (rst.getString(4));
                 return true;
+            }
+            else {
+                return false;
             }
         }
         return false;
@@ -127,5 +131,19 @@ public class Customer {
 
     private boolean comparePasswords(String password, String passwordDb) {
         return password.equals(passwordDb) ? true:false;
+    }
+
+    public Customer(String name) {
+        this.name = name;
+    }
+
+    public int changePassword(String newPassword) throws SQLException {
+
+
+        String s1 = "update customer set password=(?) where userName=(?)";
+        psmt = con.prepareStatement(s1);
+        psmt.setString(1,newPassword);
+        psmt.setString(2,userName);
+        return psmt.executeUpdate();
     }
 }
