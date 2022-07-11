@@ -16,7 +16,7 @@
     </tr>
     <tr>
         <td>
-
+            <a href="../view-balance">View Balance</a>
         </td>
     </tr>
     </tbody>

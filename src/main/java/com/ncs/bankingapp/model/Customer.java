@@ -11,7 +11,7 @@ public class Customer {
 
     private String password;
 
-    private String balance;
+    private int balance;
 
     static Connection con;
     static PreparedStatement psmt;
@@ -62,17 +62,17 @@ public class Customer {
         this.password = password;
     }
 
-    public String getBalance() {
+    public int getBalance() {
         return balance;
     }
 
-    public void setBalance(String email) {
-        this.balance = email;
+    public void setBalance(int balance) {
+        this.balance = balance;
     }
 
     public int register() throws SQLException {
 
-        if(!userNameExistsInDb()) {
+        if(userNameExistsInDb()) {
             return 0;
         }
         else{
@@ -94,13 +94,16 @@ public class Customer {
         psmt.setString(1,userName);
 
         rst = psmt.executeQuery();
-        System.out.println("Customer: userNameExistsInDB: query for userName completed");
+        System.out.println("Customer: userNameExistsInDB: query for userName completed -" + this.userName );
         if(rst.next()){
-            System.out.println("Customer: userNameExistsInDB: userName does not exist");
-            return false;
+            System.out.println("Customer: userNameExistsInDB: userName exists");
+            name = rst.getString(1);
+            balance = rst.getInt(4);
+            return true;
         }
         else {
-            return true;
+            System.out.println("Customer: userNameExistsInDB: userName does not exist");
+            return false;
         }
     }
 
@@ -119,7 +122,8 @@ public class Customer {
 
                 name = rst.getString(1);
                 userName = rst.getString(2);
-                balance = (rst.getString(4));
+                balance = rst.getInt(4);
+                System.out.println("customer: login: balance - " + balance);
                 return true;
             }
             else {
@@ -133,8 +137,8 @@ public class Customer {
         return password.equals(passwordDb) ? true:false;
     }
 
-    public Customer(String name) {
-        this.name = name;
+    public Customer(String userName) {
+        this.userName = userName;
     }
 
     public int changePassword(String newPassword) throws SQLException {
@@ -145,5 +149,10 @@ public class Customer {
         psmt.setString(1,newPassword);
         psmt.setString(2,userName);
         return psmt.executeUpdate();
+    }
+
+    public void viewBalance() throws SQLException {
+        userNameExistsInDb();
+        System.out.println("balance updated to customer object " + balance);
     }
 }

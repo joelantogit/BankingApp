@@ -4,7 +4,7 @@
     <title>Banking App</title>
 </head>
 <body>
-Password Successfully updated
+Password successfully updated
 <table>
     <thead>
     <th>Welcome <%=session.getAttribute("userName")%></th>
@@ -17,7 +17,7 @@ Password Successfully updated
     </tr>
     <tr>
         <td>
-
+            <a href="../view-balance">View Balance</a>
         </td>
     </tr>
     </tbody>
