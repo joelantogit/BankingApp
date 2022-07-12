@@ -40,6 +40,12 @@ public class Customer {
         this.password = password;
     }
 
+    public Customer(String userName) throws SQLException {
+        this();
+        this.userName = userName;
+    }
+
+
     public String getName() {
         return name;
     }
@@ -140,10 +146,6 @@ public class Customer {
         return password.equals(passwordDb) ? true:false;
     }
 
-    public Customer(String userName) throws SQLException {
-        this();
-        this.userName = userName;
-    }
 
     public int changePassword(String newPassword) throws SQLException {
 
@@ -237,6 +239,7 @@ public class Customer {
         psmt.executeUpdate();
         return true;
     }
+
 
 
 
