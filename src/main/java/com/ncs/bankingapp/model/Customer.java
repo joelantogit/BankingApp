@@ -224,4 +224,21 @@ public class Customer {
         }
         return transactionList;
     }
+
+    public boolean applyLoan(int loanAmount) throws SQLException {
+        userNameExistsInDb();
+
+        String s = "insert into loan values(?,?,?)";
+
+        psmt = con.prepareStatement(s);
+        psmt.setString(1,userName);
+        psmt.setInt(2,loanAmount);
+        psmt.setString(3,"applied");
+        psmt.executeUpdate();
+        return true;
+    }
+
+
+
+
 }

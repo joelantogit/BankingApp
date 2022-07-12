@@ -30,6 +30,11 @@
             <a href="viewTransactions.jsp">View Transactions</a>
         </td>
     </tr>
+    <tr>
+        <td>
+            <a href="applyLoan.jsp">Apply Loan</a>
+        </td>
+    </tr>
     </tbody>
 </table>
 </body>
