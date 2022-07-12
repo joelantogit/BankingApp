@@ -4,6 +4,10 @@
     <title>Banking App</title>
 </head>
 <body>
+Transfer Completed
+
+<br>
+
 <table>
     <thead>
     <th>Welcome <%=session.getAttribute("userName")%></th>

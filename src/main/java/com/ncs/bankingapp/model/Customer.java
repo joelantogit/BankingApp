@@ -88,7 +88,7 @@ public class Customer {
         }
     }
 
-    private boolean userNameExistsInDb() throws SQLException {
+    public boolean userNameExistsInDb() throws SQLException {
         String s = "select * from customer where userName=(?)";
         psmt = con.prepareStatement(s);
         psmt.setString(1,userName);
@@ -106,6 +106,7 @@ public class Customer {
             return false;
         }
     }
+
 
     public boolean login() throws SQLException {
         String s1 = "select * from customer where userName=?";
@@ -154,5 +155,45 @@ public class Customer {
     public void viewBalance() throws SQLException {
         userNameExistsInDb();
         System.out.println("balance updated to customer object " + balance);
+    }
+
+    public int credit(int amount, Date date) throws SQLException {
+        String s = "insert into transaction values(?,?,?,?)";
+        psmt = con.prepareStatement(s);
+        psmt.setString(1,userName);
+        psmt.setInt(2,amount);
+        psmt.setDate(3,  date);
+        psmt.setString(4,"credit");
+
+        return psmt.executeUpdate();
+    }
+
+
+    public int debit(int amount, java.sql.Date date) throws SQLException {
+        String s = "insert into transaction values(?,?,?,?)";
+        psmt = con.prepareStatement(s);
+        psmt.setString(1,userName);
+        psmt.setInt(2,amount);
+        psmt.setDate(3,  date);
+        psmt.setString(4,"debit");
+
+        return psmt.executeUpdate();
+    }
+
+
+    public int updateDebit(int amount) throws SQLException {
+        String s = "update customer set balance=(?) where username=(?)";
+        psmt = con.prepareStatement(s);
+        psmt.setInt(1,balance-amount);
+        psmt.setString(2,userName);
+        return psmt.executeUpdate();
+    }
+
+    public int updateCredit(int amount) throws SQLException {
+        String s = "update customer set balance=(?) where username=(?)";
+        psmt = con.prepareStatement(s);
+        psmt.setInt(1,balance+amount);
+        psmt.setString(2,userName);
+        return psmt.executeUpdate();
     }
 }

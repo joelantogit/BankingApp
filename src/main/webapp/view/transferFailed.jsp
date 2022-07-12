@@ -6,6 +6,7 @@
 
 </head>
 <body>
+Transfer Failed. Please retry after verifying 'to' username and available balance
 <form action="../transfer">
     <table>
         <thead>
