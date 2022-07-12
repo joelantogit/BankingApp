@@ -26,7 +26,12 @@ public class ViewBalance extends HttpServlet {
         System.out.println("sessionid in viewBalance - " + session.getId());
         String userName =  (String)session.getAttribute("userName");
         System.out.println("username from session - " + userName);
-        Customer customer = new Customer(userName);
+        Customer customer = null;
+        try {
+            customer = new Customer(userName);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         System.out.println("setting customer username from session " + customer.getUserName());
         try {
             customer.viewBalance();

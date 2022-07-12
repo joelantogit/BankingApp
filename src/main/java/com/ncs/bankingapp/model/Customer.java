@@ -1,6 +1,8 @@
 package com.ncs.bankingapp.model;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Customer {
 
@@ -138,7 +140,8 @@ public class Customer {
         return password.equals(passwordDb) ? true:false;
     }
 
-    public Customer(String userName) {
+    public Customer(String userName) throws SQLException {
+        this();
         this.userName = userName;
     }
 
@@ -162,8 +165,8 @@ public class Customer {
         psmt = con.prepareStatement(s);
         psmt.setString(1,userName);
         psmt.setInt(2,amount);
-        psmt.setDate(3,  date);
-        psmt.setString(4,"credit");
+        psmt.setDate(4,  date);
+        psmt.setString(3,"credit");
 
         return psmt.executeUpdate();
     }
@@ -174,8 +177,8 @@ public class Customer {
         psmt = con.prepareStatement(s);
         psmt.setString(1,userName);
         psmt.setInt(2,amount);
-        psmt.setDate(3,  date);
-        psmt.setString(4,"debit");
+        psmt.setDate(4,  date);
+        psmt.setString(3,"debit");
 
         return psmt.executeUpdate();
     }
@@ -195,5 +198,30 @@ public class Customer {
         psmt.setInt(1,balance+amount);
         psmt.setString(2,userName);
         return psmt.executeUpdate();
+    }
+
+    public List<Transaction> viewTransactions(Date fdate, Date tdate) throws SQLException {
+
+        List<Transaction> transactionList = new ArrayList<>();
+
+        String s = "select * from transaction where userName=(?) AND date between (?) AND (?) ";
+
+        psmt = con.prepareStatement(s);
+        psmt.setString(1,userName);
+        psmt.setDate(2, fdate);
+
+        psmt.setDate(3, tdate);
+        rst = psmt.executeQuery();
+        while(rst.next()){
+            Transaction transaction = new Transaction();
+            transaction.setUserName(rst.getString(1));
+            transaction.setAmount(Integer.parseInt(rst.getString(2)));
+            transaction.setType(rst.getString(3));
+            transaction.setDate(rst.getDate(4));
+
+            transactionList.add(transaction);
+
+        }
+        return transactionList;
     }
 }

@@ -28,6 +28,11 @@ Transfer Completed
             <a href="transferMoney.jsp">Transfer Money</a>
         </td>
     </tr>
+    <tr>
+        <td>
+            <a href="viewTransactions.jsp">View Transactions</a>
+        </td>
+    </tr>
     </tbody>
 </table>
 </body>

@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Banking App</title>
+
 </head>
 <body>
 <table>
@@ -22,6 +23,11 @@
     <tr>
         <td>
             <a href="transferMoney.jsp">Transfer Money</a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="viewTransactions.jsp">View Transactions</a>
         </td>
     </tr>
     </tbody>

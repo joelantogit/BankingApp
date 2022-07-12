@@ -28,12 +28,22 @@ public class Transfer extends HttpServlet {
         HttpSession session = request.getSession();
 
         String userName = (String)session.getAttribute("userName");
-        Customer customer = new Customer(userName);
+        Customer customer = null;
+        try {
+            customer = new Customer(userName);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
 
         String toUserName = (String) request.getParameter("toCustomer");
 
-        Customer toCustomer = new Customer(toUserName);
+        Customer toCustomer = null;
+        try {
+            toCustomer = new Customer(toUserName);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
         int amount = Integer.parseInt(request.getParameter("amount"));
 
