@@ -32,8 +32,8 @@ public class AdminApproveRejectLoan extends HttpServlet {
             try {
                 Customer customer = new Customer(userName);
                 customer.userNameExistsInDb();
-                customer.setBalance(customer.getBalance()+amount);
-                customer.updateDebit(amount);
+                //customer.setBalance(customer.getBalance()+amount);
+                customer.updateCredit(amount);
                 Loan loan = new Loan(userName,amount,"applied");
                 loan.updateStatus("approved");
                 response.sendRedirect("view/loanApproved.jsp");

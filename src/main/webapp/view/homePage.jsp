@@ -35,6 +35,11 @@
             <a href="applyLoan.jsp">Apply Loan</a>
         </td>
     </tr>
+    <tr>
+        <td>
+            <a href="../logout">Logout</a>
+        </td>
+    </tr>
     </tbody>
 </table>
 </body>

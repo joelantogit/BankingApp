@@ -23,6 +23,11 @@ Welcome <%=session.getAttribute("userName")%>
                 <a href="../admin-view-loans">Approve/Reject Loans</a>
             </td>
         </tr>
+        <tr>
+            <td>
+                <a href="../logout">Logout</a>
+            </td>
+        </tr>
         </tbody>
     </table>
 </form>
