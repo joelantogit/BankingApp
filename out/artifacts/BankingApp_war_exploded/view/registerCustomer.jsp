@@ -59,7 +59,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xl-5 col-md-8">
-                    <form class="bg-white  rounded-5 shadow-5-strong p-5 ">
+                    <div class="bg-white  rounded-5 shadow-5-strong p-5 ">
                         <center style="padding: 10px;"><h1><div class="text-secondary ">Welcome User!</div></h1></center>
 
                         <!-- Pills navs -->
@@ -104,7 +104,6 @@
                                         <label class="form-label" for="registerRepeatPassword">Repeat password</label>
                                     </div>
 
-
                                     <!-- Submit button -->
                                     <input type="submit" class="btn btn-primary btn-block mb-3" value="Register">
                                 </form>
@@ -112,7 +111,7 @@
                         </div>
                         <!-- Pills content -->
 
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
