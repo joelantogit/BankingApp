@@ -28,16 +28,19 @@ public class AdminViewLoans extends HttpServlet {
         List<Loan> loans = new ArrayList<>();
         HttpSession session = request.getSession();
         String userName = (String) session.getAttribute("userName");
-        Admin admin = new Admin(userName);
-
-        try {
-            loans =  admin.viewLoans();
-            session.setAttribute("loans",loans);
-            response.sendRedirect("view/adminViewLoans.jsp");
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        if(null==userName){
+            response.sendRedirect("index.jsp");
         }
+        else{
+            Admin admin = new Admin(userName);
 
-
+            try {
+                loans =  admin.viewLoans();
+                session.setAttribute("loans",loans);
+                response.sendRedirect("view/adminViewLoans.jsp");
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 }

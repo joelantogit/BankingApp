@@ -28,46 +28,51 @@ public class Transfer extends HttpServlet {
         HttpSession session = request.getSession();
 
         String userName = (String)session.getAttribute("userName");
-        Customer customer = null;
-        try {
-            customer = new Customer(userName);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+
+        if(null==userName){
+            response.sendRedirect("index.jsp");
         }
+        else{
+            Customer customer = null;
+            try {
+                customer = new Customer(userName);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
 
 
-        String toUserName = (String) request.getParameter("toCustomer");
+            String toUserName = (String) request.getParameter("toCustomer");
 
-        Customer toCustomer = null;
-        try {
-            toCustomer = new Customer(toUserName);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+            Customer toCustomer = null;
+            try {
+                toCustomer = new Customer(toUserName);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
 
-        int amount = Integer.parseInt(request.getParameter("amount"));
+            int amount = Integer.parseInt(request.getParameter("amount"));
 
-        try {
-            customer.userNameExistsInDb();
-            if(toCustomer.userNameExistsInDb() && customer.getBalance() > amount ){
-                DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-                java.util.Date dt = new java.util.Date();
-                java.sql.Date date = new java.sql.Date(dt.getTime());
+            try {
+                customer.userNameExistsInDb();
+                if(toCustomer.userNameExistsInDb() && customer.getBalance() > amount ){
+                    DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+                    java.util.Date dt = new java.util.Date();
+                    java.sql.Date date = new java.sql.Date(dt.getTime());
 
-                if(customer.debit(amount,date)>0   &&   toCustomer.credit(amount,date)>0   &&   customer.updateDebit(amount)>0 && toCustomer.updateCredit(amount)>0 ){
-                    response.sendRedirect("view/transferSuccess.jsp");
+                    if(customer.debit(amount,date)>0   &&   toCustomer.credit(amount,date)>0   &&   customer.updateDebit(amount)>0 && toCustomer.updateCredit(amount)>0 ){
+                        response.sendRedirect("view/transferSuccess.jsp");
+                    }
+                    else {
+                        response.sendRedirect("view/transferFailed.jsp");
+                    }
+
                 }
-                else {
+                else{
                     response.sendRedirect("view/transferFailed.jsp");
                 }
-
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
             }
-            else{
-                response.sendRedirect("view/transferFailed.jsp");
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
         }
-
     }
 }

@@ -24,29 +24,29 @@ public class ChangePassword extends HttpServlet {
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         HttpSession session = request.getSession();
         String userName = (String) session.getAttribute("userName");
-        Customer customer = null;
-        try {
-            customer = new Customer(userName,request.getParameter("currentPassword"));
-            if(customer.login()){
-                System.out.println("ChangePassword: service: user verified");
-                if(customer.changePassword(request.getParameter("newPassword"))>0){
-                    System.out.println("ChangePassword: service: password updated");
-                    response.sendRedirect("view/passwordChanged.jsp");
+        if(null==userName){
+            response.sendRedirect("index.jsp");
+        }
+        else{
+            Customer customer = null;
+            try {
+                customer = new Customer(userName,request.getParameter("currentPassword"));
+                if(customer.login()){
+                    System.out.println("ChangePassword: service: user verified");
+                    if(customer.changePassword(request.getParameter("newPassword"))>0){
+                        System.out.println("ChangePassword: service: password updated");
+                        response.sendRedirect("view/passwordChanged.jsp");
+                    }
+                    else{
+                        response.sendRedirect("view/passwordChangeFailed.jsp");
+                    }
                 }
                 else{
                     response.sendRedirect("view/passwordChangeFailed.jsp");
                 }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
             }
-            else{
-                response.sendRedirect("view/passwordChangeFailed.jsp");
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
         }
-
-
-
-
-
     }
 }

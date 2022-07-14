@@ -50,21 +50,25 @@ public class ViewTransactions extends HttpServlet {
         HttpSession session = request.getSession();
         String userName = (String)session.getAttribute("userName");
 
-        Customer customer = null;
-        try {
-            customer = new Customer(userName);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        if(null == userName){
+            response.sendRedirect("index.jsp");
         }
+        else{
+            Customer customer = null;
+            try {
+                customer = new Customer(userName);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
 
-        try {
-            List<Transaction> transactionList = customer.viewTransactions(fdate,tdate);
-            session.setAttribute("transactionList", transactionList);
-            response.sendRedirect("view/viewTransactionsList.jsp");
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+            try {
+                List<Transaction> transactionList = customer.viewTransactions(fdate,tdate);
+                session.setAttribute("transactionList", transactionList);
+                response.sendRedirect("view/viewTransactionsList.jsp");
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
-
     }
 }
 

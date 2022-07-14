@@ -25,19 +25,21 @@ public class ApplyLoan extends HttpServlet {
         HttpSession session = request.getSession();
 
         String userName = (String) session.getAttribute("userName");
-        int loanAmount =Integer.parseInt(request.getParameter("loanAmount"));
-
-        try {
-            Customer customer = new Customer(userName);
-            if(customer.applyLoan(loanAmount)){
-
-                response.sendRedirect("view/loanApplied.jsp");
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        if(null==userName){
+            response.sendRedirect("index.jsp");
         }
+        else{
+            int loanAmount =Integer.parseInt(request.getParameter("loanAmount"));
 
+            try {
+                Customer customer = new Customer(userName);
+                if(customer.applyLoan(loanAmount)){
 
+                    response.sendRedirect("view/loanApplied.jsp");
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
-
 }

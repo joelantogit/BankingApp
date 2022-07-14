@@ -24,34 +24,40 @@ public class AdminApproveRejectLoan extends HttpServlet {
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+
         String status = request.getParameter("status");
         String userName = request.getParameter("userName");
-        int amount = Integer.parseInt(request.getParameter("amount"));
-        System.out.println("AdminApproveRejectLoan: service: parameters \n userName -" + userName + "\namount -" + amount);
-        if(status.equals("Accept")){
-            try {
-                Customer customer = new Customer(userName);
-                customer.userNameExistsInDb();
-                //customer.setBalance(customer.getBalance()+amount);
-                customer.updateCredit(amount);
-                Loan loan = new Loan(userName,amount,"applied");
-                loan.updateStatus("approved");
-                response.sendRedirect("view/loanApproved.jsp");
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-
-
+        if(null==userName){
+            response.sendRedirect("index.jsp");
         }
-        else if(status.equals("Reject")){
+        else{
+            int amount = Integer.parseInt(request.getParameter("amount"));
+            System.out.println("AdminApproveRejectLoan: service: parameters \n userName -" + userName + "\namount -" + amount);
+            if(status.equals("Accept")){
+                try {
+                    Customer customer = new Customer(userName);
+                    customer.userNameExistsInDb();
+                    //customer.setBalance(customer.getBalance()+amount);
+                    customer.updateCredit(amount);
+                    Loan loan = new Loan(userName,amount,"applied");
+                    loan.updateStatus("approved");
+                    response.sendRedirect("view/loanApproved.jsp");
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
 
-            Loan loan = null;
-            try {
-                loan = new Loan(userName,amount,"applied");
-                loan.updateStatus("rejected");
-                response.sendRedirect("view/loanRejected.jsp");
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
+
+            }
+            else if(status.equals("Reject")){
+
+                Loan loan = null;
+                try {
+                    loan = new Loan(userName,amount,"applied");
+                    loan.updateStatus("rejected");
+                    response.sendRedirect("view/loanRejected.jsp");
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
             }
         }
     }
