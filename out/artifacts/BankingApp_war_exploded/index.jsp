@@ -21,7 +21,7 @@
                                 <center style="padding:40px ;"><h1><div class="badge btn btn-primary"><a href="view/landingPage.jsp" style="color:inherit;text-decoration: none;">Customer Login</a></div></h1></center>
                             </div>
                             <div class="row float-end ">
-                                <a href="view/adminLoginPage.jsp"  style="color:darkgray;font-size: 0.5em;">Admin</a>
+                                <a href="view/adminLoginPage.jsp"  style="color:gray;font-size: 0.8em;">Admin</a>
                             </div>
                         </div>
                     </form>

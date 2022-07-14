@@ -79,8 +79,6 @@
                         <input type="submit" class="btn btn-primary btn-block mb-4" value="Send" >
 
                     </form>
-
-
                 </div>
             </div>
         </div>
