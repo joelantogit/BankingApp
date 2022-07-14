@@ -28,6 +28,11 @@ Welcome <%=session.getAttribute("userName")%>
                 <a href="../logout">Logout</a>
             </td>
         </tr>
+        <tr>
+            <td>
+                <a href="../admin-get-customer-details">Logout</a>
+            </td>
+        </tr>
         </tbody>
     </table>
 </form>

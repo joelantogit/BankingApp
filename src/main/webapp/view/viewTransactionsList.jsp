@@ -19,12 +19,6 @@
             $("#toDate").datepicker();
         } );
     </script>
-    <%
-        String userName= (String) session.getAttribute("userName");
-        if(null==userName){
-            response.sendRedirect("index.jsp");
-        }
-    %>
 </head>
 <body>
 <!-- Navbar -->
@@ -99,8 +93,6 @@
                                 }
                                 else{
                                     for(int i = 0; i<transactionList.size(); i+=1) {
-
-
                             %>
                             <tr>
                                 <th scope="row "><%=i+1%></th>

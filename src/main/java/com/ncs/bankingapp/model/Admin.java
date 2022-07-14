@@ -85,4 +85,20 @@ public class Admin {
         }
         return loans;
     }
+
+    public List<Customer> getAllCustomers() throws SQLException {
+
+        List<Customer> customers = new ArrayList<>();
+        String s = "select * from customer";
+        smt = con.createStatement();
+        rst = smt.executeQuery(s);
+        while(rst.next()){
+            Customer customer = new Customer();
+            customer.setName(rst.getString(1));
+            customer.setUserName(rst.getString(2));
+            customer.setBalance(rst.getInt(4));
+            customers.add(customer);
+        }
+        return customers;
+    }
 }
