@@ -29,7 +29,7 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="changePassword.jsp">Change Password</a></li>
-                                <li><a class="dropdown-item" href="viewBalance.jsp">Check Balance</a></li>
+                                <li><a class="dropdown-item" href="../view-balance">Check Balance</a></li>
                                 <li><a class="dropdown-item" href="viewTransactions.jsp">View Transactions</a></li>
                             </ul>
                         </li>
