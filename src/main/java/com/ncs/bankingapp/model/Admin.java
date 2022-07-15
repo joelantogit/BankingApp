@@ -70,8 +70,8 @@ public class Admin {
             }
         }
 
-    public List<Loan> viewLoans() throws SQLException {
-        List<Loan> loans = new ArrayList<>();
+    public List<Loan> getPendingLoans() throws SQLException {
+        List<Loan> pendingLoans = new ArrayList<>();
         String s = "select * from loan where status =(?)";
         psmt = con.prepareStatement(s);
         psmt.setString(1,"applied");
@@ -81,9 +81,9 @@ public class Admin {
             loan.setUserName(rst.getString(1));
             loan.setAmount(rst.getInt(2));
             loan.setStatus(rst.getString(3));
-            loans.add(loan);
+            pendingLoans.add(loan);
         }
-        return loans;
+        return pendingLoans;
     }
 
     public List<Customer> getAllCustomers() throws SQLException {
@@ -100,5 +100,21 @@ public class Admin {
             customers.add(customer);
         }
         return customers;
+    }
+
+    public List<Loan> getAllLoans() throws SQLException {
+
+        List<Loan> allLoans = new ArrayList<>();
+        String s = "select * from loan";
+        smt = con.createStatement();
+        rst = smt.executeQuery(s);
+        while(rst.next()){
+            Loan loan = new Loan();
+            loan.setUserName(rst.getString(1));
+            loan.setAmount(rst.getInt(2));
+            loan.setStatus(rst.getString(3));
+            allLoans.add(loan);
+        }
+        return allLoans;
     }
 }

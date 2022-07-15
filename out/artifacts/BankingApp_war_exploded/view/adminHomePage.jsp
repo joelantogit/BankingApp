@@ -25,7 +25,7 @@
                             <a class="nav-link active " aria-current="page"  href="#home">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../admin-approve-reject-loan">Loan Applicatons</a>
+                            <a class="nav-link" href="../admin-view-loans">Loan Applicatons</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="../admin-get-customer-details">Customer info</a>

@@ -25,7 +25,8 @@ public class AdminViewLoans extends HttpServlet {
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        List<Loan> loans = new ArrayList<>();
+        List<Loan> allLoans = new ArrayList<>();
+        List<Loan> pendingLoans = new ArrayList<>();
         HttpSession session = request.getSession();
         String userName = (String) session.getAttribute("userName");
         if(null==userName){
@@ -35,8 +36,10 @@ public class AdminViewLoans extends HttpServlet {
             Admin admin = new Admin(userName);
 
             try {
-                loans =  admin.viewLoans();
-                session.setAttribute("loans",loans);
+                allLoans =  admin.getAllLoans();
+                pendingLoans = admin.getPendingLoans();
+                session.setAttribute("allLoans",allLoans);
+                session.setAttribute("pendingLoans",pendingLoans);
                 response.sendRedirect("view/adminViewLoans.jsp");
             } catch (SQLException e) {
                 throw new RuntimeException(e);

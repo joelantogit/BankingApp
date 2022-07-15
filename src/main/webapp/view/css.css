@@ -47,3 +47,27 @@ nav {
     background: inherit;
     backdrop-filter: blur(10px);
 }
+
+.frosted-glass-2{
+    box-shadow: 0 0 6px 0 ;
+    background: inherit;
+    backdrop-filter: blur(12px);
+    max-height: 200px;
+}
+
+#frosted-glass-3{
+    box-shadow: 0 0 6px 0 ;
+    background: inherit;
+    backdrop-filter: blur(12px);
+}
+
+#content-box{
+    height: 800px;
+    min-height: 800px;
+}
+
+.vertical-scrollable>.tr {
+    position: absolute;
+    overflow-y: scroll;;
+
+}
