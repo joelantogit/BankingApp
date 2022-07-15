@@ -88,12 +88,17 @@ public class Customer {
             psmt = con.prepareStatement(s);
             psmt.setString(1, name);
             psmt.setString(2,userName);
-            psmt.setString(3,password);
+            psmt.setString(3,encryptPassword(password).toString());
             psmt.setInt(4, 5000);
             System.out.println("Customer: register: Saving to DB");
 
             return psmt.executeUpdate();
         }
+    }
+
+    private String encryptPassword(String password) {
+
+        return password;
     }
 
     public boolean userNameExistsInDb() throws SQLException {
@@ -126,7 +131,8 @@ public class Customer {
         if(rst.next()){
             String passwordDb = rst.getString(3);
             System.out.println("customer: login: checking password");
-            if(comparePasswords(password, passwordDb)){
+            System.out.println(encryptPassword(password).toString() + passwordDb);
+            if(comparePasswords(encryptPassword(password).toString(), passwordDb)){
                 System.out.println("customer: login: password verified");
 
                 name = rst.getString(1);

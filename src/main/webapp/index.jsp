@@ -18,7 +18,7 @@
                     <form class="bg-white rounded-5 shadow-5-strong p-5 " >
                         <div class="col">
                             <div class="row  ">
-                                <center style="padding:40px ;"><h1><div class="badge btn btn-primary"><a href="view/landingPage.jsp" style="color:inherit;text-decoration: none;">Customer Login</a></div></h1></center>
+                                <center style="padding:40px ;"><h1><div class="badge btn btn-primary"><a href="view/landingPage.jsp" style="color:inherit;text-decoration: none;">Customer</a></div></h1></center>
                             </div>
                             <div class="row float-end ">
                                 <a href="view/adminLoginPage.jsp"  style="color:gray;font-size: 0.8em;">Admin</a>
