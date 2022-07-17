@@ -50,7 +50,7 @@
 
 <div id="intro" class="bg-image shadow-2-strong" >
     <div class="mask d-flex align-items-center h-100" style="background-color: rgba(0, 0, 0, 0);">
-        <div class="container">
+        <div class="container" style="max-height: 90%">
             <div class="row justify-content-center">
                 <div class="col-xl-5 col-md-8"style="width: auto;">
                     <div class="  rounded-5 shadow-5-strong p-5 " id="frosted-glass">
