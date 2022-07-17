@@ -97,6 +97,7 @@ public class Admin {
             customer.setName(rst.getString(1));
             customer.setUserName(rst.getString(2));
             customer.setBalance(rst.getInt(4));
+            customer.setEmail(rst.getString(5));
             customers.add(customer);
         }
         return customers;

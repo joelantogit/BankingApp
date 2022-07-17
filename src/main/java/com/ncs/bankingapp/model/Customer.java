@@ -15,6 +15,25 @@ public class Customer {
 
     private int balance;
 
+    private String email;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Customer(String name, String userName, String password, String email) throws SQLException {
+        this();
+        this.name = name;
+        this.userName = userName;
+        this.password = password;
+
+        this.email = email;
+    }
+
     static Connection con;
     static PreparedStatement psmt;
     static Statement smt;
@@ -84,12 +103,13 @@ public class Customer {
             return 0;
         }
         else{
-            String s = "insert into customer values (?,?,?,?)";
+            String s = "insert into customer values (?,?,?,?,?)";
             psmt = con.prepareStatement(s);
             psmt.setString(1, name);
             psmt.setString(2,userName);
             psmt.setString(3,encryptPassword(password).toString());
             psmt.setInt(4, 5000);
+            psmt.setString(5,email);
             System.out.println("Customer: register: Saving to DB");
 
             return psmt.executeUpdate();
@@ -112,6 +132,7 @@ public class Customer {
             System.out.println("Customer: userNameExistsInDB: userName exists");
             name = rst.getString(1);
             balance = rst.getInt(4);
+            email = rst.getString(5);
             return true;
         }
         else {
@@ -138,6 +159,7 @@ public class Customer {
                 name = rst.getString(1);
                 userName = rst.getString(2);
                 balance = rst.getInt(4);
+                email = rst.getString(5);
                 System.out.println("customer: login: balance - " + balance);
                 return true;
             }

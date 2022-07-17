@@ -18,8 +18,8 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse position-relative" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <div class="collapse navbar-collapse " id="navbarSupportedContent" style="margin: 0px;border: 0px;padding: 0px;">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0  position-relative">
                         <li class="nav-item">
                             <a class="nav-link active " aria-current="page"  href="homePage.jsp"><b>Home</b></a>
                         </li>
@@ -40,9 +40,9 @@
                             <a class="nav-link" href="applyLoan.jsp">Loan</a>
                         </li>
                     </ul>
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 position-absolute  end-0">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 position-absolute  end-0  bottom-0 text-danger " style="margin: 2px; border: 2px; padding:4px">
                         <li class="nav-item ">
-                            <a class="nav-link btn btn-outline-danger " href="../logout">Logout</a>
+                            <a class="nav-link btn  " href="../logout">Logout</a>
                         </li>
                     </ul>
 

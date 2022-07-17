@@ -104,6 +104,12 @@
                                         <label class="form-label" for="registerRepeatPassword">Repeat password</label>
                                     </div>
 
+                                    <!-- Email -->
+                                    <div class="form-outline mb-4">
+                                        <input type="email" id="email" class="form-control" name="email" required/>
+                                        <label class="form-label" for="email">Email</label>
+                                    </div>
+
                                     <!-- Submit button -->
                                     <input type="submit" class="btn btn-primary btn-block mb-3" value="Register">
                                 </form>

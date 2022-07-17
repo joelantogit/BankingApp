@@ -24,7 +24,7 @@ public class RegisterServlet extends HttpServlet {
     @Override
     protected  void service(HttpServletRequest request, HttpServletResponse response) throws  ServletException, IOException{
         try {
-            Customer customer = new Customer(request.getParameter("name"),request.getParameter("userName"),request.getParameter("password"));
+            Customer customer = new Customer(request.getParameter("name"),request.getParameter("userName"),request.getParameter("password"), request.getParameter("email"));
             int i = customer.register();
             if(i>0){
                 response.sendRedirect("view/registerSuccessLoginCustomer.jsp");

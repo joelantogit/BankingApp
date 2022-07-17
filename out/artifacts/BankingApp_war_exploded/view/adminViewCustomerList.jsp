@@ -65,6 +65,7 @@
                                 <th scope="col">Name</th>
                                 <th scope="col">Username</th>
                                 <th scope="col">Balance</th>
+                                <th scope="col">Email</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -77,6 +78,7 @@
                                 <td><%=customers.get(i).getName()%></td>
                                 <td><%=customers.get(i).getUserName()%></td>
                                 <td><%=customers.get(i).getBalance()%></td>
+                                <td><%=customers.get(i).getEmail()%></td>
                             </tr>
                             <% }
                             }
