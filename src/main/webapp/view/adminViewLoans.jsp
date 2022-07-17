@@ -52,7 +52,7 @@
     <div class="mask d-flex align-items-center h-100" style="background-color: rgba(0, 0, 0, 0);">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-xl-5 col-md-8">
+                <div class="col-xl-5 col-md-8"style="width: auto;">
                     <div class="  rounded-5 shadow-5-strong p-5 " id="frosted-glass">
                         <div class="  rounded-5 shadow-5-strong p-5 frosted-glass-2" style="max-height: 400px; overflow-y: scroll">
                             <center style="padding: 10px;"><h1><div class="text-secondary ">Pending Action</div></h1></center>

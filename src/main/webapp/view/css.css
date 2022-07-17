@@ -49,7 +49,7 @@ nav {
 }
 
 .frosted-glass-2{
-    box-shadow: 0 0 6px 0 ;
+
     background: inherit;
     backdrop-filter: blur(12px);
     max-height: 200px;
