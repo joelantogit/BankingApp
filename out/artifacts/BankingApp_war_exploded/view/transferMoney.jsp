@@ -64,13 +64,13 @@
                         <center><div><h3 class="text-secondary">Experience the power of seamless Banking.</h3></div></center>
 
                         <div class="form-outline mb-4">
-                            <input type="text" id="toCustomer" class="form-control" name="toCustomer" />
+                            <input type="text" id="toCustomer" class="form-control" name="toCustomer" required />
                             <label class="form-label" for="toCustomer">Send to</label>
                         </div>
 
                         <!-- Password input -->
                         <div class="form-outline mb-4">
-                            <input type="number" id="amount" class="form-control" name="amount" />
+                            <input type="number" id="amount" class="form-control" name="amount"  required/>
                             <label class="form-label" for="amount">Amount</label>
                         </div>
 
