@@ -55,7 +55,7 @@
                 <div class="col-xl-5 col-md-8"style="width: auto;">
                     <div class="  rounded-5 shadow-5-strong p-5 " id="frosted-glass">
                         <div class="  rounded-5 shadow-5-strong p-5 frosted-glass-2" style="max-height: 400px; overflow-y: scroll">
-                            <center style="padding: 10px;"><h1><div class="text-secondary ">Pending Action</div></h1></center>
+                            <center style="padding: 10px;"><h1><div class="text-black ">Pending Action</div></h1></center>
                             <table class="table container vertical-scrollable" style="overflow-y: scroll"  >
                                 <thead>
                                 <%
@@ -94,7 +94,7 @@
                                             <%}%>
                                         </td>
                                         <td class="row">
-                                            <form>
+                                            <form action="../admin-approve-reject-loan">
                                                 <input type="text" hidden value="<%=pendingLoans.get(i).getUserName()%>" name="userName">
                                                 <input type="text" hidden value="<%=pendingLoans.get(i).getAmount()%>" name="amount">
                                                 <input type="submit" value="Accept" name="status" class=" col-md-6 btn" style="width: 80px;background-color: #87bcdd" >
@@ -113,7 +113,7 @@
                             </table>
                         </div>
                         <div class="  rounded-5 shadow-5-strong p-5 frosted-glass-3 "  style="max-height: 400px;overflow-y: scroll">
-                            <center style="padding: 10px;"><h1><div class="text-secondary ">All Loans</div></h1></center>
+                            <center style="padding: 10px;"><h1><div class="text-black ">All Loans</div></h1></center>
                             <table class="table container vertical-scrollable" style="overflow-y: scroll" >
                                 <thead>
                                 <%
