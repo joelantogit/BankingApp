@@ -76,7 +76,7 @@
                             <label class="form-label" for="rNewPassword">re-enter new password</label>
                         </div>
                         <!-- Submit button -->
-                        <input type="submit" class="btn btn-primary btn-block mb-4" value="Update">
+                        <input type="submit" class="btn btn-primary btn-block mb-4" value="Update" onclick="return Validate()">
                     </form>
                 </div>
             </div>
@@ -84,7 +84,17 @@
     </div>
 </div>
 
-
+<script type="text/javascript">
+    function Validate() {
+        var password = document.getElementById("registerPassword").value;
+        var confirmPassword = document.getElementById("registerRepeatPassword").value;
+        if (password != confirmPassword) {
+            alert("Passwords do not match.");
+            return false;
+        }
+        return true;
+    }
+</script>
 
 
 
