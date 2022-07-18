@@ -40,12 +40,11 @@
                             <a class="nav-link" href="applyLoan.jsp">Loan</a>
                         </li>
                     </ul>
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 position-absolute  end-0  bottom-0 text-danger " style="margin: 2px; border: 2px; padding:4px">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 position-absolute  end-0  bottom-0 " style="margin: 2px; border: 2px; padding:4px">
                         <li class="nav-item ">
                             <a class="nav-link btn  " href="../logout">Logout</a>
                         </li>
                     </ul>
-
                 </div>
             </div>
         </nav>

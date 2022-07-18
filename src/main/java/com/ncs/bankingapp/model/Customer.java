@@ -2,6 +2,7 @@ package com.ncs.bankingapp.model;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Customer {
@@ -107,7 +108,7 @@ public class Customer {
             psmt = con.prepareStatement(s);
             psmt.setString(1, name);
             psmt.setString(2,userName);
-            psmt.setString(3,encryptPassword(password).toString());
+            psmt.setString(3,encryptPassword(password));
             psmt.setInt(4, 5000);
             psmt.setString(5,email);
             System.out.println("Customer: register: Saving to DB");
@@ -117,8 +118,15 @@ public class Customer {
     }
 
     private String encryptPassword(String password) {
+        String encrypted = "";
+        char[] x = new char[password.length()];
+        StringBuilder sbr = new StringBuilder(encrypted);
 
-        return password;
+        for(int i=0;i<password.length();i++){
+            x[i] = (char) (password.charAt(i) +2);
+        }
+        encrypted = Arrays.toString(x);
+        return encrypted;
     }
 
     public boolean userNameExistsInDb() throws SQLException {
@@ -152,8 +160,8 @@ public class Customer {
         if(rst.next()){
             String passwordDb = rst.getString(3);
             System.out.println("customer: login: checking password");
-            System.out.println(encryptPassword(password).toString() + passwordDb);
-            if(comparePasswords(encryptPassword(password).toString(), passwordDb)){
+            System.out.println(encryptPassword(password) + passwordDb);
+            if(comparePasswords(encryptPassword(password), passwordDb)){
                 System.out.println("customer: login: password verified");
 
                 name = rst.getString(1);
@@ -180,7 +188,7 @@ public class Customer {
 
         String s1 = "update customer set password=(?) where userName=(?)";
         psmt = con.prepareStatement(s1);
-        psmt.setString(1,newPassword);
+        psmt.setString(1,encryptPassword(newPassword));
         psmt.setString(2,userName);
         return psmt.executeUpdate();
     }
