@@ -60,44 +60,45 @@
             <div class="row justify-content-center">
                 <div class="col-xl-5 col-md-8">
                     <div class="bg-white  rounded-5 shadow-5-strong p-5 ">
-                        <center style="padding: 10px;"><h1><div class="text-secondary ">Welcome User!</div></h1></center>
+                        <center style="padding: 10px;"><h2><div class="text-secondary ">Get otp in email</div></h2></center>
 
-                        <!-- Pills navs -->
-                        <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <a class="nav-link active" id="tab-login" data-mdb-toggle="pill" href="landingPage.jsp" role="tab"
-                                   aria-controls="pills-login" aria-selected="true">Login</a>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <a class="nav-link" id="tab-register" data-mdb-toggle="pill" href="registerCustomer.jsp" role="tab"
-                                   aria-controls="pills-register" aria-selected="false">Register</a>
-                            </li>
-                        </ul>
-                        <!-- Pills navs -->
+
+
 
                         <!-- Pills content -->
                         <div class="tab-content">
                             <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
-                                <form action="../login-servlet">
+                                <form action="../forgot-password">
 
                                     <!-- userName input -->
                                     <div class="form-outline mb-4">
-                                        <input type="text" id="loginName" class="form-control" name="userName" required />
-                                        <label class="form-label" for="loginName">Username</label>
-                                    </div>
+                                        <input type="text" id="email" class="form-control" name="email" required/>
 
-                                    <!-- Password input -->
-                                    <div class="form-outline mb-4">
-                                        <input type="password" id="loginPassword" class="form-control" name="password" required />
-                                        <label class="form-label" for="loginPassword">Password</label>
+                                        <label class="form-label" for="email">Registered Email</label>
                                     </div>
 
                                     <!-- Submit button -->
-                                    <input type="submit" class="btn btn-primary btn-block mb-4" value="Sign in">
+                                    <input type="submit" class="btn btn-primary btn-block mb-4" value="Get OTP">
                                 </form>
-                                <div class="row justify-content-center">
-                                    <a href="forgotPassword.jsp" >Forgot Password?</a>
-                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active" id="pills-forgot-password" role="tabpanel" aria-labelledby="tab-login">
+                                <form action="../forgot-password">
+
+                                    <!-- userName input -->
+                                    <div class="form-outline mb-4">
+                                        <input type="number" id="otp" class="form-control" name="otp" required />
+                                        <label class="form-label" for="otp">OTP</label>
+                                    </div>
+
+                                    <!-- Submit button -->
+                                    <input type="submit" class="btn btn-primary btn-block mb-4" value="Change Password">
+                                </form>
+
+
                             </div>
                         </div>
                         <!-- Pills content -->

@@ -95,6 +95,9 @@
                                     <!-- Submit button -->
                                     <input type="submit" class="btn btn-primary btn-block mb-4" value="Sign in">
                                 </form>
+<%--                                <div class="row justify-content-center">--%>
+<%--                                    <a href="forgotPassword.jsp" >Forgot Password?</a>--%>
+<%--                                </div>--%>
                             </div>
                         </div>
                         <!-- Pills content -->

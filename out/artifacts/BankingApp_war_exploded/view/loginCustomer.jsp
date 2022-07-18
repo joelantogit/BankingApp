@@ -19,6 +19,10 @@ Please login
         <div class="col-md-12"><input type="submit" value="Login"></div>
     </div>
 </form>
+
+    <div class="row justify-content-center">
+        <a href="forgotPassword.jsp" >Forgot Password?</a>
+    </div>
 </div>
 
 
