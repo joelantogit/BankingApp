@@ -60,7 +60,7 @@
                 <div class="col-xl-5 col-md-8">
                     <form class="bg-gradient rounded-5 shadow-5-strong p-5 " id="frosted-glass">
                         <center><h1><div class="  ">Welcome <%=session.getAttribute("userName")%>!</div></h1></center>
-                        <center><div><h3 class="text-secondary">Experience the power of seamless Banking.</h3></div></center>
+                        <center><div><h3 class="text-secondary text-danger">Experience the power of seamless Banking.</h3></div></center>
                     </form>
 
 

@@ -110,7 +110,7 @@
                                     </div>
 
                                     <!-- Submit button -->
-                                    <input type="submit" class="btn btn-primary btn-block mb-3" value="Register">
+                                    <input type="submit" class="btn btn-primary btn-block mb-3" value="Register"  onclick="return Validate()">
                                 </form>
                             </div>
                         </div>
@@ -123,6 +123,17 @@
     </div>
 </div>
 
+<script type="text/javascript">
+    function Validate() {
+        var password = document.getElementById("registerPassword").value;
+        var confirmPassword = document.getElementById("registerRepeatPassword").value;
+        if (password != confirmPassword) {
+            alert("Passwords do not match.");
+            return false;
+        }
+        return true;
+    }
+</script>
 
 
 
