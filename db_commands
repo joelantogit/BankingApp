@@ -1,0 +1,37 @@
+Admin
+
+CREATE TABLE `admin` (
+  `userName` varchar(45) DEFAULT NULL,
+  `password` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
+
+
+Customer
+
+CREATE TABLE `customer` (
+  `name` varchar(45) DEFAULT NULL,
+  `userName` varchar(45) NOT NULL,
+  `password` varchar(45) DEFAULT NULL,
+  `balance` int DEFAULT NULL,
+  `email` varchar(45) NOT NULL,
+  PRIMARY KEY (`userName`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 
+
+
+Loan
+
+CREATE TABLE `loan` (
+  `userName` varchar(45) DEFAULT NULL,
+  `amount` int DEFAULT NULL,
+  `status` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 
+
+
+Transactions
+
+CREATE TABLE `transaction` (
+  `userName` varchar(45) DEFAULT NULL,
+  `amount` int DEFAULT NULL,
+  `type` varchar(45) DEFAULT NULL,
+  `date` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
