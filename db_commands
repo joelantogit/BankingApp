@@ -35,3 +35,6 @@ CREATE TABLE `transaction` (
   `type` varchar(45) DEFAULT NULL,
   `date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+
+
+https://drive.google.com/drive/folders/1GQS9nUQXNj6S7_8D_g0xIBK6cXmh3siu
