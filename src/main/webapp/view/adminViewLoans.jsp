@@ -112,7 +112,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div class="  rounded-5 shadow-5-strong p-5 frosted-glass-3 "  style="max-height: 400px;overflow-y: scroll">
+                        <div class="  rounded-5 shadow-5-strong p-5 frosted-glass-3 "  style="overflow-y: scroll">
                             <center style="padding: 10px;"><h1><div class="text-black ">All Loans</div></h1></center>
                             <table class="table container vertical-scrollable" style="overflow-y: scroll" >
                                 <thead>

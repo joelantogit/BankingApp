@@ -86,8 +86,8 @@
 
 <script type="text/javascript">
     function Validate() {
-        var password = document.getElementById("registerPassword").value;
-        var confirmPassword = document.getElementById("registerRepeatPassword").value;
+        var password = document.getElementById("newPassword").value;
+        var confirmPassword = document.getElementById("rNewPassword").value;
         if (password != confirmPassword) {
             alert("Passwords do not match.");
             return false;

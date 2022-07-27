@@ -1,7 +1,14 @@
 #intro {
     height :100vh;
     background: url(images/maxresdefault.jpeg) no-repeat;
+
+
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: repeat-y;
     background-size: cover;
+
 }
 
 
@@ -55,10 +62,11 @@ nav {
     max-height: 200px;
 }
 
-#frosted-glass-3{
-    box-shadow: 0 0 6px 0 ;
+.frosted-glass-3{
+
     background: inherit;
     backdrop-filter: blur(12px);
+    max-height: 200px;
 }
 
 #content-box{
