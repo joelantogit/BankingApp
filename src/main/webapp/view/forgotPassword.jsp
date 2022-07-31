@@ -60,10 +60,7 @@
             <div class="row justify-content-center">
                 <div class="col-xl-5 col-md-8">
                     <div class="bg-white  rounded-5 shadow-5-strong p-5 ">
-                        <center style="padding: 10px;"><h2><div class="text-secondary ">Get otp in email</div></h2></center>
-
-
-
+                        <center style="padding: 10px;"><h2><div class="text-secondary ">Get new password in E-mail</div></h2></center>
 
                         <!-- Pills content -->
                         <div class="tab-content">
@@ -72,36 +69,16 @@
 
                                     <!-- userName input -->
                                     <div class="form-outline mb-4">
-                                        <input type="text" id="email" class="form-control" name="email" required/>
+                                        <input type="email" id="email" class="form-control" name="email" required/>
 
                                         <label class="form-label" for="email">Registered Email</label>
                                     </div>
 
                                     <!-- Submit button -->
-                                    <input type="submit" class="btn btn-primary btn-block mb-4" value="Get OTP">
+                                    <input type="submit" class="btn btn-primary btn-block mb-4" value="Send">
                                 </form>
-
-
                             </div>
                         </div>
-                        <div class="tab-content">
-                            <div class="tab-pane fade show active" id="pills-forgot-password" role="tabpanel" aria-labelledby="tab-login">
-                                <form action="../forgot-password">
-
-                                    <!-- userName input -->
-                                    <div class="form-outline mb-4">
-                                        <input type="number" id="otp" class="form-control" name="otp" required />
-                                        <label class="form-label" for="otp">OTP</label>
-                                    </div>
-
-                                    <!-- Submit button -->
-                                    <input type="submit" class="btn btn-primary btn-block mb-4" value="Change Password">
-                                </form>
-
-
-                            </div>
-                        </div>
-                        <!-- Pills content -->
                     </div>
                 </div>
             </div>

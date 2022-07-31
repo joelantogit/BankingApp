@@ -60,30 +60,25 @@
       <div class="row justify-content-center">
         <div class="col-xl-5 col-md-8">
           <div class="bg-white  rounded-5 shadow-5-strong p-5 ">
-            <center style="padding: 10px;"><h2><div class="text-secondary ">Enter OTP sent to <%=session.getAttribute("email")%></div></h2></center>
-
-
-
-
-
+            <center style="padding: 10px;"><h2><div class="text-secondary ">Get otp in email</div></h2></center>
+            <center style="padding: 10px;"><h3><div class="text-danger">Email not found in Server</div></h3></center>
+            <!-- Pills content -->
             <div class="tab-content">
-              <div class="tab-pane fade show active" id="pills-forgot-password" role="tabpanel" aria-labelledby="tab-login">
+              <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
                 <form action="../forgot-password">
 
-                  <!-- Otp input -->
+                  <!-- userName input -->
                   <div class="form-outline mb-4">
-                    <input type="number" id="otp" class="form-control" name="otp" required />
-                    <label class="form-label" for="otp">OTP</label>
+                    <input type="email" id="email" class="form-control" name="email" required/>
+
+                    <label class="form-label" for="email">Registered Email</label>
                   </div>
 
                   <!-- Submit button -->
-                  <input type="submit" class="btn btn-primary btn-block mb-4" value="Change Password">
+                  <input type="submit" class="btn btn-primary btn-block mb-4" value="Send">
                 </form>
-
-
               </div>
             </div>
-            <!-- Pills content -->
           </div>
         </div>
       </div>

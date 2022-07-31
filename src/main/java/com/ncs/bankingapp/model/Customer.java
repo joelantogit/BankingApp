@@ -41,7 +41,7 @@ public class Customer {
     static ResultSet rst;
 
 
-    Customer() throws SQLException {
+    public Customer() throws SQLException {
         DriverManager.registerDriver(new com.mysql.jdbc.Driver());
         con = DriverManager.getConnection("jdbc:mysql://localhost/bank_db","root","root");
         System.out.println("Customer  : Connected to db");
@@ -53,6 +53,8 @@ public class Customer {
         this.password = password;
 
     }
+
+
 
     public Customer(String userName, String password) throws SQLException {
         this();
@@ -149,6 +151,27 @@ public class Customer {
         }
     }
 
+    public boolean emailExistsInDb() throws SQLException {
+        String s = "select * from customer where email=(?)";
+        psmt = con.prepareStatement(s);
+        psmt.setString(1,email);
+
+        rst = psmt.executeQuery();
+        System.out.println("Customer: emailExistsInDb: query for email completed -" + this.email );
+        if(rst.next()){
+            System.out.println("Customer: userNameExistsInDB: userName exists");
+            name = rst.getString(1);
+            balance = rst.getInt(4);
+            email = rst.getString(5);
+            return true;
+        }
+        else {
+            System.out.println("Customer: userNameExistsInDB: userName does not exist");
+            return false;
+        }
+    }
+
+
 
     public boolean login() throws SQLException {
         String s1 = "select * from customer where userName=?";
@@ -190,6 +213,18 @@ public class Customer {
         psmt = con.prepareStatement(s1);
         psmt.setString(1,encryptPassword(newPassword));
         psmt.setString(2,userName);
+        return psmt.executeUpdate();
+    }
+
+
+    public int changePasswordWithEmail(String newPassword) throws SQLException {
+
+
+        String s1 = "update customer set password=(?) where email=(?)";
+        System.out.println("updating password " + newPassword + "for customer with email " + email);
+        psmt = con.prepareStatement(s1);
+        psmt.setString(1,encryptPassword(newPassword));
+        psmt.setString(2,email);
         return psmt.executeUpdate();
     }
 

@@ -61,6 +61,7 @@
                 <div class="col-xl-5 col-md-8">
                     <div class="bg-white  rounded-5 shadow-5-strong p-5 ">
                         <center style="padding: 10px;"><h1><div class="text-secondary ">Welcome User!</div></h1></center>
+                        <center style="padding: 10px;"><h3><div class="text-success ">Password Updated, Check email for new Password</div></h3></center>
 
                         <!-- Pills navs -->
                         <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
